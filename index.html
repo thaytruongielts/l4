@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Listening Part 4 - The Role of Sleep</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+            color: #1f2937;
+            padding: 1rem;
+        }
+        .section-box {
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        .answer-key-container {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+            padding: 0 1rem;
+            margin-top: 0;
+        }
+        .answer-key-container.visible {
+            max-height: 2000px; 
+            opacity: 1;
+            padding: 1rem;
+            margin-top: 1.5rem;
+        }
+        .correct-answer {
+            color: #10b981; /* Emerald 500 */
+            font-weight: 600;
+        }
+        .question-group {
+            border-left: 4px solid #4f46e5; /* Indigo */
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-start justify-center">
+
+    <div id="app" class="w-full max-w-4xl mt-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2 text-center">IELTS Listening Part 4 - Band 5.5 Practice</h1>
+        <p class="text-gray-500 mb-6 text-center">Section 4: The Role of Sleep in Academic Success (Note Completion)</p>
+
+        <div class="section-box">
+            <h2 class="text-xl font-semibold text-indigo-600 mb-4">Hướng dẫn:</h2>
+            <p class="mb-4">Bạn sẽ nghe một đoạn bài giảng về tầm quan trọng của giấc ngủ đối với sinh viên. Hoàn thành các ghi chú dưới đây.</p>
+            <p class="font-bold mb-6">Viết **KHÔNG QUÁ BA TỪ VÀ/HOẶC MỘT SỐ** cho mỗi câu trả lời (Câu 31-40).</p>
+
+            <!-- Audio Player (SoundCloud Embed) -->
+            <div class="mb-6 border-b pb-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-2">Trình phát Audio</h3>
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <!-- SoundCloud Embed using user's URL -->
+                    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" 
+                            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2182784743&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                    </iframe>
+                </div>
+                <button id="downloadButton" 
+                        class="mt-4 w-full px-6 py-3 bg-yellow-600 text-white font-semibold rounded-xl shadow-lg hover:bg-yellow-700 transition duration-150">
+                    Tải Audio về máy (SoundCloud)
+                </button>
+            </div>
+
+            <!-- Check Answers Button -->
+            <button id="checkAnswersButton" 
+                    class="w-full px-6 py-3 bg-red-600 text-white font-semibold rounded-xl shadow-lg hover:bg-red-700 transition duration-150">
+                Kiểm tra đáp án
+            </button>
+            <div id="messageBox" class="mt-4 p-3 text-sm rounded-lg text-yellow-800 bg-yellow-100 hidden"></div>
+
+            <!-- Questions Form -->
+            <form id="listeningForm" class="mt-8 space-y-6">
+                
+                <!-- Q31-40: Note Completion -->
+                <div class="question-group">
+                    <h3 class="text-lg font-bold text-gray-700 mb-3">Questions 31-40: Complete the notes below.</h3>
+                    
+                    <h4 class="font-medium text-gray-600 mt-4 mb-2">Lecture: The Role of Sleep in Academic Success</h4>
+                    
+                    <p class="ml-4 mt-2 font-bold text-sm">Three Main Benefits of Proper Sleep:</p>
+                    
+                    <p class="ml-4 mt-2">31. Consolidation of Memories:</p>
+                    <ul class="list-disc ml-8 space-y-2 text-sm">
+                        <li>Moves information from short-term to <input type="text" id="q31" class="border p-1 rounded-md w-1/3" placeholder="Answer 31">.</li>
+                        <li>Skipping sleep means forgetting large parts of information.</li>
+                    </ul>
+
+                    <p class="ml-4 mt-2">32. Improved Concentration:</p>
+                    <ul class="list-disc ml-8 space-y-2 text-sm">
+                        <li>Lack of sleep makes paying attention difficult.</li>
+                        <li>Losing one hour of sleep can reduce focus by almost <input type="text" id="q32" class="border p-1 rounded-md w-1/3" placeholder="Answer 32">.</li>
+                        <li>Affects ability to write <input type="text" id="q33" class="border p-1 rounded-md w-1/2" placeholder="Answer 33"> and take notes.</li>
+                    </ul>
+
+                    <p class="ml-4 mt-2">34. Better <input type="text" id="q34" class="border p-1 rounded-md w-1/3" placeholder="Answer 34">:</p>
+                    <ul class="list-disc ml-8 space-y-2 text-sm">
+                        <li>Reduces stress levels and anxiety.</li>
+                        <li>Leads to better study habits.</li>
+                    </ul>
+                    
+                    <h4 class="font-medium text-gray-600 mt-6 mb-2">Sleep Recommendations (Sleep Hygiene)</h4>
+                    
+                    <p class="ml-4 mt-2">35. Required amount of sleep for young adults: <input type="text" id="q35" class="border p-1 rounded-md w-1/3" placeholder="Answer 35"> hours.</p>
+                    
+                    <p class="ml-4 mt-2">36. Maintain a <input type="text" id="q36" class="border p-1 rounded-md w-1/2" placeholder="Answer 36"> even on weekends.</p>
+                    
+                    <p class="ml-4 mt-2">37. This helps regulate the internal <input type="text" id="q37" class="border p-1 rounded-md w-1/2" placeholder="Answer 37">.</p>
+                    
+                    <p class="ml-4 mt-2">38. Avoid using <input type="text" id="q38" class="border p-1 rounded-md w-1/2" placeholder="Answer 38"> before bed.</p>
+                    
+                    <p class="ml-4 mt-2">39. The light from these devices is <input type="text" id="q39" class="border p-1 rounded-md w-1/3" placeholder="Answer 39">.</p>
+                    
+                    <p class="ml-4 mt-2">40. Sleep is a necessary <input type="text" id="q40" class="border p-1 rounded-md w-1/2" placeholder="Answer 40"> for effective learning.</p>
+                </div>
+                
+                <!-- Check Answers Button (bottom) -->
+                <button id="checkAnswersButtonBottom" 
+                        class="w-full px-6 py-3 bg-red-600 text-white font-semibold rounded-xl shadow-lg hover:bg-red-700 transition duration-150">
+                    Kiểm tra đáp án
+                </button>
+            </form>
+
+            <!-- Answer Key and Script Container (Initially hidden) -->
+            <button id="toggleAnswersButton" 
+                    class="mt-6 px-4 py-2 text-sm font-medium text-green-700 bg-green-100 rounded-lg hover:bg-green-200 transition duration-150">
+                Show Script & Answers
+            </button>
+            <div id="answerKeyContainer" class="answer-key-container">
+                <div class="section-box bg-white p-6 mt-4">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800 border-b pb-2">Answer Key (Đáp án)</h3>
+                    <div id="answersList" class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
+                        <!-- Answers will be injected here -->
+                    </div>
+                </div>
+
+                <div class="section-box bg-white p-6 mt-4">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800 border-b pb-2">Full Script (Bản ghi đầy đủ)</h3>
+                    <div id="scriptDisplay" class="max-h-96 overflow-y-auto text-sm text-gray-700 leading-relaxed">
+                        <!-- Script will be injected here -->
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script type="module">
+        // --- IELTS Script and Answers (Based on the provided monologue) ---
+        const scriptData = {
+            dialogue: [
+                { text: "Good morning, everyone. Today, I want to discuss a crucial factor in achieving academic success: sleep. Many students see sleep as a waste of time, something to cut short when they have to study for exams. But this is a big mistake that harms your academic performance." },
+                { text: "Proper sleep is essential for three main reasons. Firstly, it helps your brain consolidate memories. When you learn new information, like historical dates or complex formulas, your brain doesn't truly store it until you sleep. During sleep, your brain moves information from short-term memory to **long-term memory**. This process is called consolidation. If you skip a night of sleep, you are essentially forgetting a large part of what you studied that day. This is why cramming often fails." }, // Q31
+                { text: "Secondly, sleep greatly improves your **concentration and focus**. Think about trying to concentrate in a morning lecture after only three or four hours of sleep. You feel tired, irritable, and it’s difficult to pay attention. Research shows that even losing just one hour of sleep can reduce your ability to focus on tasks by almost **twenty percent**. This lack of focus affects your ability to write **essays** and take notes effectively." }, // Q32, Q33
+                { text: "The third benefit relates to **mental health**. Lack of sleep can increase stress levels and anxiety. When you are well-rested, your mood is generally better, and you are better equipped to handle the pressures of university life. This creates a positive cycle: better sleep leads to better mental health, which leads to better study habits." }, // Q34
+                { text: "So, how much sleep do you need? For most young adults, the ideal amount is **eight to ten hours** every night. It’s important to note that it’s not just about the quantity, but also the quality. We call this 'sleep hygiene'. Try to have a **regular bedtime**, even on weekends, to regulate your internal body clock, or what we call the circadian rhythm. Avoid using **electronic devices** like phones or tablets right before bed, as the **blue light** can trick your brain into staying awake." }, // Q35, Q36, Q37, Q38, Q39 (The question mapping in the form has been adjusted to fit the flow.)
+                { text: "In conclusion, remember that sleep is not the enemy of study; it’s a necessary **tool** for effective learning. By prioritizing your rest, you are actually investing directly in your education and future success." } // Q40
+            ],
+            answers: {
+                q31: "long-term memory",
+                q32: "twenty percent",
+                q33: "essays",
+                q34: "mental health",
+                q35: "eight to ten",
+                q36: "regular bedtime",
+                q37: "body clock", // Accepting 'internal body clock' or 'circadian rhythm' if the user were typing, but 'body clock' is concise.
+                q38: "electronic devices",
+                q39: "blue light",
+                q40: "tool"
+            }
+        };
+
+        // --- DOM Elements ---
+        const checkAnswersButton = document.getElementById('checkAnswersButton');
+        const checkAnswersButtonBottom = document.getElementById('checkAnswersButtonBottom');
+        const toggleAnswersButton = document.getElementById('toggleAnswersButton');
+        const answerKeyContainer = document.getElementById('answerKeyContainer');
+        const answersList = document.getElementById('answersList');
+        const scriptDisplay = document.getElementById('scriptDisplay');
+        const messageBox = document.getElementById('messageBox');
+        const downloadButton = document.getElementById('downloadButton');
+
+        // --- Logic Functions ---
+
+        const showMessage = (text, type = 'warning') => {
+            messageBox.textContent = text;
+            messageBox.className = `mt-4 p-3 text-sm rounded-lg ${type === 'error' ? 'text-red-800 bg-red-100' : type === 'success' ? 'text-green-800 bg-green-100' : 'text-yellow-800 bg-yellow-100'}`;
+            messageBox.style.display = 'block';
+        };
+
+        const renderScriptAndAnswers = () => {
+            // Render Answers
+            answersList.innerHTML = Object.keys(scriptData.answers).map((key, index) => {
+                let displayIndex = index + 31; // Start counting from 31 for Part 4
+                return `<p><strong>${displayIndex}.</strong> <span class="correct-answer">${scriptData.answers[key].toUpperCase()}</span></p>`;
+            }).join('');
+
+            // Render Script
+            scriptDisplay.innerHTML = scriptData.dialogue.map(line => `
+                <p class="mb-3">${line.text}</p>
+            `).join('');
+        };
+
+        const toggleAnswers = () => {
+            const isVisible = answerKeyContainer.classList.toggle('visible');
+            toggleAnswersButton.textContent = isVisible ? 'Hide Script & Answers' : 'Show Script & Answers';
+        };
+
+        const checkAnswers = () => {
+            let correctCount = 0;
+            const totalQuestions = 10;
+            
+            for (let i = 31; i <= 40; i++) {
+                const qId = `q${i}`;
+                const inputElement = document.getElementById(qId);
+                const userAnswer = inputElement.value.trim().toLowerCase();
+                const correctAnswer = scriptData.answers[qId].trim().toLowerCase();
+                
+                let isCorrect = userAnswer === correctAnswer;
+                
+                // Allow slightly flexible matching for phrases like "long-term memory"
+                if (!isCorrect && (correctAnswer.includes(userAnswer) || userAnswer.includes(correctAnswer))) {
+                     // Simple check for partial match if the answer is a phrase
+                     isCorrect = true; 
+                }
+
+                if (isCorrect) {
+                    correctCount++;
+                    inputElement.style.borderColor = '#10b981'; // green
+                } else {
+                    inputElement.style.borderColor = '#ef4444'; // red
+                }
+            }
+
+            showMessage(`Bạn đã trả lời đúng ${correctCount}/${totalQuestions} câu. Nhấn 'Show Script & Answers' để xem chi tiết.`, correctCount >= 6 ? 'success' : 'warning');
+        };
+        
+        const downloadAudioFile = () => {
+            // Since this is an embedded SoundCloud player, we cannot directly download the audio file 
+            // used by the player without calling an external API (which is restricted) or using the original TTS method.
+            // Instead, we link to the SoundCloud page itself for download where available.
+            const soundcloudUrl = 'https://soundcloud.com/truong-le-252173324/part-4';
+            window.open(soundcloudUrl, '_blank');
+            showMessage("Audio này được nhúng từ SoundCloud. Vui lòng kiểm tra trên trang SoundCloud để xem tùy chọn tải về.", 'warning');
+        };
+
+        // --- Initialization and Event Listeners ---
+        window.onload = () => {
+            renderScriptAndAnswers();
+        };
+
+        const checkHandler = (e) => {
+            e.preventDefault();
+            checkAnswers();
+        };
+        checkAnswersButton.addEventListener('click', checkHandler);
+        checkAnswersButtonBottom.addEventListener('click', checkHandler);
+        
+        toggleAnswersButton.addEventListener('click', toggleAnswers);
+        downloadButton.addEventListener('click', downloadAudioFile);
+    </script>
+</body>
+</html>
